@@ -13,4 +13,4 @@ int RandomComputerNumberCard(){
 }
 
 char RandomSuiteCard(){
-    char suites[4]
+ 
