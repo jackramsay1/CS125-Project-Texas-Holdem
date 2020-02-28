@@ -4,31 +4,7 @@
 # define ROWS 100
 # define COLUMN 100
 
-int Computerchoice(){
-    int r;
-    r= rand() % 9 + 1;
-      return r; 
-  
-  int playerchoice(int x){
-    
-    
-  }
-  
-  
-  char 
-      
 
-
-
-
-int main() {
-  
-
-int Computerchoice(void){
-    int r;
-    r=rand()%9+1;
-    return r;
-    }
 
 int Playerselect(int x){
         switch(x){
@@ -61,10 +37,13 @@ int Playerselect(int x){
 
         break;
         }
-};
+}
 
-      
-
+int Computerchoice(){
+    int r;
+    r= rand() % 9 + 1;
+      return r; 
+}
 
 int main() {
     void print_array(){
@@ -90,7 +69,7 @@ int main() {
         };
         
   
-    };
+    }
   
   print_array();
   
