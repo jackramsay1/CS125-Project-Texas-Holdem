@@ -1,8 +1,28 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 # define ROWS 100
 # define COLUMN 100
+
+int Computerchoice(){
+    int r;
+    r= rand() % 9 + 1;
+      return r; 
+  
+  int playerchoice(int x){
+    
+    
+  }
+  
+  
+  char 
+      
+
+
+
+
+int main() {
+  
 
 int Computerchoice(void){
     int r;
