@@ -10,7 +10,7 @@ int Computerchoice(void){
     return r;
     }
 
-int Playerselect(int x){
+int PlayerselectX(int x){
         switch(x){
         case 1:
         
@@ -42,8 +42,70 @@ int Playerselect(int x){
         break;
         }
 };
+int PlayerselectY(int y){
+        switch(y){
+        case 1:
+        
+        break;
+        case 2:
+        
+        break;
+        case 3:
 
-      
+        break;
+        case 4:
+        
+        break;
+        case 5:
+            
+        break;
+        
+        case 6:
+        
+        break;
+        case 7:
+        
+        break;
+        case 8:
+    
+        break;
+        case 9:
+
+        break;
+        }
+};
+int Computerturn(int r){
+        switch(r){
+        case 1:
+        
+        break;
+        case 2:
+        
+        break;
+        case 3:
+
+        break;
+        case 4:
+        
+        break;
+        case 5:
+            
+        break;
+        
+        case 6:
+        
+        break;
+        case 7:
+        
+        break;
+        case 8:
+    
+        break;
+        case 9:
+
+        break;
+        }
+};      
 
 
 int main() {
