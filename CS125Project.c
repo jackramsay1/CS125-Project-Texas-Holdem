@@ -5,6 +5,7 @@
 # define COLUMN 100
 void Playerselect(int x, char grid[ROWS][COLUMN]);
 void print_array(char grid[ROWS][COLUMN]);
+void Playerselecto(int o, char grid[ROWS][COLUMN]);
 int Computerchoice(void){
     int r;
     r=rand()%9+1;
@@ -12,44 +13,84 @@ int Computerchoice(void){
     }
 void playerinput(char grid[ROWS][COLUMN]){
     int x;
-    printf("enter your position to move: ");
+    printf("enter your position to move(x): ");
     scanf("%d",&x);
     Playerselect(x,grid);
+    print_array(grid);
+    }
+void playerinputo(char grid[ROWS][COLUMN]){
+    int o;
+    printf("enter your position to move(o): ");
+    scanf("%d",&o);
+    Playerselecto(o,grid);
     print_array(grid);
     }
 
 void Playerselect(int x,char grid[ROWS][COLUMN]){
         switch(x){
         case 1:
-        grid[0][5]='x';
+        grid[0][5]='X';
         break;
         case 2:
-        grid[0][10]='x';
+        grid[0][10]='X';
         break;
         case 3:
-        grid[0][14]='x';
+        grid[0][14]='X';
         break;
         case 4:
-        grid[2][5]='x';
+        grid[2][5]='X';
         break;
         case 5:
         grid[2][10]='x';    
         break;
         
         case 6:
-        grid[2][14]='x';
+        grid[2][14]='X';
         break;
         case 7:
-        grid[4][5]='x';
+        grid[4][5]='X';
         break;
         case 8:
-        grid[4][10]='x';
+        grid[4][10]='X';
         break;
         case 9:
-        grid[4][14]='x';
+        grid[4][14]='X';
         break;
         }
 }
+void Playerselecto(int o,char grid[ROWS][COLUMN]){
+	switch(o){
+        case 1:
+        grid[0][5]='O';
+        break;
+        case 2:
+        grid[0][10]='O';
+        break;
+        case 3:
+        grid[0][14]='O';
+        break;
+        case 4:
+        grid[2][5]='O';
+        break;
+        case 5:
+        grid[2][10]='O';    
+        break;
+        
+        case 6:
+        grid[2][14]='O';
+        break;
+        case 7:
+        grid[4][5]='O';
+        break;
+        case 8:
+        grid[4][10]='O';
+        break;
+        case 9:
+        grid[4][14]='O';
+        break;
+        }
+}
+	
 
       
     void print_array(char grid[ROWS][COLUMN]){
@@ -73,8 +114,8 @@ int main() {
   printf("\n");
   print_array(grid);  
   playerinput(grid);
+  playerinputo(grid);
   playerinput(grid);
-  playerinput(grid);
-  playerinput(grid);  
+  playerinputo(grid);  
 return 0;
 }
