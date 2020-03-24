@@ -8,14 +8,6 @@
 int
 main ()
 {
-
-  {
-    int r;
-    r = rand () % 9 + 1;
-    return r;
-  }
-
-
   int player_count;
   int valid = 0;
   char player;
