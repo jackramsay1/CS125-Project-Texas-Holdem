@@ -24,7 +24,7 @@ main ()
 
   // checking for valid inputs
   while (player_count != 1 || player_count != 0)
-    {
+  {
       if (player_count == 1)
 	{
 	  break;
@@ -33,17 +33,7 @@ main ()
 	{
 	  break;
 	}
-      /*if (player_count == scanf ("%*c"))
-	{
-	  int numberRead = scanf ("%d", &player_count);
-	  while (numberRead != 1 || numberRead != 2)
-	    {
-	      printf ("That is not a number. \n");
-	      scanf ("%*[^\n]");
-	      printf ("Enter a number: ");
-	      numberRead = scanf ("%d", &player_count);
-	    }
-	    */
+      
       else
 	{
 	    while(player_count != 1 || player_count != 0)
@@ -51,16 +41,6 @@ main ()
 	  printf ("Enter only 1 or 2\n");
 	  scanf ("%d", &player_count);
 	    }
-	  if(player_count != scanf("%d")){
-	   int numberRead = scanf ("%d", &player_count);
-	  while (numberRead != 1 || numberRead != 2)
-	    {
-	      printf ("That is not a number. \n");
-	      scanf ("%*[^\n]");
-	      printf ("Enter a number: ");
-	      numberRead = scanf ("%d", &player_count);
-	    }
-	  }
 	}
       valid = 0;
 
@@ -92,21 +72,12 @@ main ()
 	      printf ("Enter only x or o\n");
 	      scanf ("%*c");
 	      scanf ("%c", &player);
-
-	      int letterread = scanf ("%c", &player);
-	         while (letterread != 1)
-	         {
-	         printf ("That is not a letter. \n");
-	         scanf ("%*[^\n]");
-	         printf ("Enter a letter: ");
-	         letterread = scanf ("%c", &player);
 	         valid = 0;
 	         }
-	       
 	    }
 	  break;
 
-	}
+	
     }
   if (player_count == 2)
     printf ("You are now in 2 player mode\n");
@@ -141,15 +112,7 @@ main ()
 	      scanf ("%*c");
 	      scanf ("%c", &player1);
 
-	       int letterread = scanf ("%c", &player);
-	         while (letterread != 1)
-	         {
-	         printf ("That is not a letter. \n");
-	         scanf ("%*[^\n]");
-	         printf ("Enter a letter: ");
-	         letterread = scanf ("%c", &player);
-	         valid = 0;
-	         }
+	   
 	         valid = 0;
 	         }
 	       
@@ -161,4 +124,6 @@ main ()
     
 
   return 0;
+
+
 }
