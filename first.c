@@ -116,25 +116,7 @@ main ()
       break;
     }
 
-//*now if player_count = 1 this is the computer part
-  if (player_count == 1)
-    {
-      srand (time (NULL));
-      for (randnum = 0; randnum < 9; randnum++)
-	{
-	  computer = rand () % 9 + 1;
-	  printf ("%d", computer);
-	}
 
-      for (test = 0; test < 1; test++)
-	{
-	  printf ("Choose your position:");
-	  scanf ("%d", &position);
-
-	}
-
-
-    }
 
   return 0;
 }
