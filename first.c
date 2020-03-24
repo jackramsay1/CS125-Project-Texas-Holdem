@@ -77,3 +77,73 @@ main ()
 	      printf ("You are player o\n");
 	      break;
 	    }
+	       }
+	  else
+	    {
+	      printf ("Enter only x or o\n");
+	      scanf ("%*c");
+	      scanf ("%c", &player);
+	      valid = 0;
+	    }
+	}
+      break;
+
+    }
+  while (player_count == 2)
+    {
+      printf ("You are now in 2 player mode\n");
+      scanf ("%*c");
+      printf ("Player 1 choose x or o:\n");
+      scanf ("%c", &player1);
+
+      while (player1 != 'x' || player1 != 'o')
+	{
+
+	  if (player1 == 'x')
+	    {
+	      player2 = 'o';
+	      printf ("Player 1 is x\n");
+	      printf ("Player 2 is o\n");
+	      break;
+	    }
+	  else if (player1 == 'o')
+	    {
+	      player2 = 'x';
+	      printf ("Player 1 is o\n");
+	      printf ("Player 2 is x\n");
+	      break;
+	    }
+	  else
+	    {
+	      printf ("Enter only x or o\n");
+	      scanf ("%*c");
+	      scanf ("%c", &player1);
+	      valid = 0;
+	    }
+	}
+      break;
+    }
+
+//*now if player_count = 1 this is the computer part
+  if (player_count == 1)
+    {
+      srand (time (NULL));
+      for (randnum = 0; randnum < 9; randnum++)
+	{
+	  computer = rand () % 9 + 1;
+	  printf ("%d", computer);
+	}
+
+      for (test = 0; test < 1; test++)
+	{
+	  printf ("Choose your position:");
+	  scanf ("%d", &position);
+
+	}
+
+
+    }
+
+  return 0;
+}
+
