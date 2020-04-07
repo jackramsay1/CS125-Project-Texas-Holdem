@@ -138,7 +138,7 @@ int main()
 // Player 2 mode      
 	if (player_count == 2) {
 	    printf("You are now in 2 player mode\n");
-	    scanf("%*c");
+	    
 	    printf("Player 1 choose x or o:\n");
 	    scanf("%c", &player1);
 	    while (player1 != 'x' && player1 != 'o') {
