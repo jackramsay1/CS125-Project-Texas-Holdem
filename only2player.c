@@ -4,12 +4,11 @@
 #include <string.h>
 #define ROWS 100
 #define COLUMN 100
-void Playerselect(int x, char grid[ROWS][COLUMN]);
+void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]);
+int selectPosition(char);
+
 
 void print_array(char grid[ROWS][COLUMN]);
-
-void Playerselecto(int o, char grid[ROWS][COLUMN]);
-
 int testforwin(char grid[ROWS][COLUMN])
 {
     int value;
@@ -43,227 +42,72 @@ int testforwin(char grid[ROWS][COLUMN])
 
 
 
-void playerinput(char grid[ROWS][COLUMN])
-{
+int selectPosition(char player) { //was void playerinput(char grid[ROWS][COLUMN])
     int x;
-    printf("enter your position to move(X): ");
+    printf("enter your position to move(%c): ", player);
     scanf("%d", &x);
-    Playerselect(x, grid);
-    print_array(grid);
+    //add error handling to make sure not letter, < 1, or > 9
+    return x;
 }
 
 
+void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]){
+  int legalMove = 0;
+  int x=0, y=5;
+  int pos= playerPos;
 
-void 
-
-playerinputo (char grid[ROWS][COLUMN]) 
-{
-  
-int o;
-  
-printf ("enter your position to move(O): ");
-  
-scanf ("%d", &o);
-  
-Playerselecto (o, grid);
-  
-print_array (grid);
-
-} 
- 
- 
-void Playerselect(int x, char grid[ROWS][COLUMN])
-{
-    switch (x) {
-    case 1:
-	while (1) {
-	    if (grid[0][5] == 'O' || grid[0][5] == 'X') {
-		printf("This position is taken\n");
-		playerinput(grid);
-	    } else
-		grid[0][5] = 'X';
-	    break;
-	};
-	break;
-    case 2:
-	while (1) {
-	    if (grid[0][10] == 'O' || grid[0][10] == 'X') {
-		printf("This position is taken \n");
-		playerinput(grid);
-	    } else
-		grid[0][10] = 'X';
-	    break;
-	};
-	break;
-    case 3:
-	while (1) {
-	    if (grid[0][14] == 'O' || grid[0][14] == 'X') {
-		printf("This position is taken \n");
-		playerinput(grid);
-	    } else
-		grid[0][14] = 'X';
-	    break;
-	};
-	break;
-    case 4:
-	while (1) {
-	    if (grid[2][5] == 'O' || grid[2][5] == 'X') {
-		printf("This position is taken \n");
-		playerinput(grid);
-	    } else
-		grid[2][5] = 'X';
-	    break;
-	};
-	break;
-    case 5:
-	while (1) {
-	    if (grid[2][10] == 'O' || grid[2][10] == 'X') {
-		printf("This position is taken by player O\n");
-		playerinput(grid);
-	    } else
-		grid[2][10] = 'X';
-	    break;
-	};
-	break;
-
-    case 6:
-	while (1) {
-	    if (grid[2][14] == 'O' || grid[2][14] == 'X') {
-		printf("This position is taken\n");
-		playerinput(grid);
-	    } else
-		grid[2][14] = 'X';
-	    break;
-	};
-	break;
-    case 7:
-	while (1) {
-	    if (grid[4][5] == 'O' || grid[4][5] == 'X') {
-		printf("This position is taken\n");
-		playerinput(grid);
-	    } else
-		grid[4][5] = 'X';
-	    break;
-	};
-	break;
-    case 8:
-	while (1) {
-	    if (grid[4][10] == 'O' || grid[4][10] == 'X') {
-		printf("This position is taken \n");
-		playerinput(grid);
-	    } else
-		grid[4][10] = 'X';
-	    break;
-	};
-	break;
-    case 9:
-	while (1) {
-	    if (grid[4][14] == 'O' || grid[4][14] == 'X') {
-		printf("This position is taken\n");
-		playerinput(grid);
-	    } else
-		grid[4][14] = 'X';
-	    break;
-	};
-	break;
-    }
+  while (legalMove == 0){
+	switch (pos) {
+	case 1:    //1  =>  grid[0][5]
+	   x = 0;
+           y = 5;
+           break; 
+        case 2:    //2 => grid[0][10]
+           x = 0;
+           y = 10;
+           break; 
+        case 3:   //3 => grid[0][14]
+           x = 0;
+           y = 14; 
+           break;
+	case 4:    //4  =>  grid[2][5]
+	  x = 2;
+	  y = 5;
+	  break;
+        case 5:    //5 => grid[2][10]
+	  x = 2;
+	  y = 10;
+	  break;
+        case 6:   //6 => grid[2][14]
+          x = 2;
+	  y = 14;
+	  break;
+	case 7:   //7  =>  grid[4][5]                                                                       
+	  x = 4;
+	  y = 5;
+	  break;
+        case 8:    //8 => grid[4][10]
+	  x = 4;
+	  y = 10;
+	  break;
+        case 9:   //9 => grid[4][14]
+	  x = 4;
+	  y = 14;
+	  break;
+	}
+	if ((grid[x][y] == 'X')||(grid[x][y] == 'O')){
+	  printf("This position is taken \n");
+          pos=selectPosition(playerLetter);
+	}  
+        else {
+          legalMove = 1; //they went somewhere no one else has gone
+	}
+	printf("in while pos=%d\n", pos);
+  }
+  grid[x][y]= playerLetter;
 }
 
-void Playerselecto(int o, char grid[ROWS][COLUMN])
-{
-    switch (o) {
-    case 1:
-	while (1) {
-	    if (grid[0][5] == 'X' || grid[0][5] == 'O') {
-		printf("This position is taken \n");
-		playerinputo(grid);
-	    } else
-		grid[0][5] = 'O';
-	    break;
-	};
-	break;
-    case 2:
-	while (1) {
-	    if (grid[0][10] == 'X' || grid[0][10] == 'O') {
-		printf("This position is taken \n");
-		playerinputo(grid);
-	    } else
-		grid[0][10] = 'O';
-	    break;
-	};
-	break;
-    case 3:
-	while (1) {
-	    if (grid[0][14] == 'X' || grid[0][14] == 'O') {
-		printf("This position is taken\n");
-		playerinputo(grid);
-	    } else
-		grid[0][14] = 'O';
-	    break;
-	};
-	break;
-    case 4:
-	while (1) {
-	    if (grid[2][5] == 'X' || grid[2][5] == 'O') {
-		printf("This position is taken\n");
-		playerinputo(grid);
-	    } else
-		grid[2][5] = 'O';
-	    break;
-	};
-	break;
-    case 5:
-	while (1) {
-	    if (grid[2][10] == 'X' || grid[2][10] == 'O') {
-		printf("This position is taken\n");
-		playerinputo(grid);
-	    } else
-		grid[2][10] = 'O';
-	    break;
-	};
-	break;
-    case 6:
-	while (1) {
-	    if (grid[2][14] == 'X' || grid[2][14] == 'O') {
-		printf("This position is taken\n");
-		playerinputo(grid);
-	    } else
-		grid[2][14] = 'O';
-	    break;
-	};
-	break;
-    case 7:
-	while (1) {
-	    if (grid[4][5] == 'X' || grid[4][5] == 'O') {
-		printf("This position is taken \n");
-		playerinputo(grid);
-	    } else
-		grid[4][5] = 'O';
-	    break;
-	};
-	break;
-    case 8:
-	while (1) {
-	    if (grid[4][10] == 'X' || grid[4][10] == 'O') {
-		printf("This position is taken\n");
-		playerinputo(grid);
-	    } else
-		grid[4][10] = 'O';
-	    break;
-	};
-	break;
-    case 9:
-	while (1) {
-	    if (grid[4][14] == 'X' || grid[4][14] == 'O') {
-		printf("This position is taken\n");
-		playerinputo(grid);
-	    } else
-		grid[4][14] = 'O';
-	    break;
-	};
-	break;
-    }
-}
+
 
 
 
@@ -287,12 +131,14 @@ int main()
 	char player;
 	char player1;
     char player2;	
+	//int valid = 0;
 
+	
 
 // Player 2 mode      
 	if (player_count == 2) {
 	    printf("You are now in 2 player mode\n");
-	    
+	    scanf("%*c");
 	    printf("Player 1 choose x or o:\n");
 	    scanf("%c", &player1);
 	    while (player1 != 'x' && player1 != 'o') {
@@ -323,7 +169,9 @@ int main()
 while(1){
 	    while (1) {
 		print_array(grid);
-		playerinput(grid);
+		int pos = selectPosition('X'); //playerinput(grid);
+		playerGo(pos, 'X', grid);
+                print_array(grid); 
 		printf("\n");
 		over = testforwin(grid);
 		if (over == 1) {
@@ -335,7 +183,9 @@ while(1){
 		    print_array(grid);
 		    break;
 		}
-		playerinputo(grid);
+                pos=selectPosition('O');
+		playerGo(pos, 'O', grid);
+                print_array(grid);
 		printf("\n");
 		over = testforwin(grid);
 		if (over == 1) {
@@ -354,6 +204,7 @@ while(1){
 
 
         int x;
+        fprintf(Record,"\n");
 	    for (x=0; x < 5; x++) {
 		fprintf(Record, "%s\n", grid[x]);
 	    }
