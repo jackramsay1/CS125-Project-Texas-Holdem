@@ -668,7 +668,7 @@ break;
 	      
 	      {
 		
-("Player O won\n");
+printf("Player O won\n");
 		
 break;
 	      
