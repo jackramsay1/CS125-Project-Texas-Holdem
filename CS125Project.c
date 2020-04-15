@@ -7,9 +7,10 @@
 
 void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]);
 int selectPosition(char);
-void print_array(char grid[ROWS][COLUMN]);
 
-int testfordraw(char grid[ROWS][COLUMN])
+void print_array(char grid[ROWS][COLUMN]);  //array for game
+
+int testfordraw(char grid[ROWS][COLUMN])     //tests for a tie using all possible outcomes
 {
     int tie;
     if ((grid[0][5] == 'X' || grid[0][5] == 'O') &&
@@ -41,14 +42,7 @@ int testforwin(char grid[ROWS][COLUMN]) //*This function tests for the winner*//
     {
         value = 1;
     }
-    else if ((grid[0][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || 
-             (grid[0][5] == 'O' && grid[2][5] == 'O' && grid[4][5] == 'O') || 
-             (grid[0][10] == 'O' && grid[2][10] == 'O' && grid[4][10] == 'O') || 
-             (grid[0][14] == 'O' && grid[2][14] == 'O' && grid[4][14] == 'O') || 
-             (grid[2][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || 
-             (grid[4][5] == 'O' && grid[4][10] == 'O' && grid[4][14] == 'O') || 
-             (grid[0][5] == 'O' && grid[2][10] == 'O' && grid[4][14] == 'O') || 
-             (grid[4][5] == 'O' && grid[2][10] == 'O' && grid[0][14] == 'O'))
+    else if ((grid[0][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || (grid[0][5] == 'O' && grid[2][5] == 'O' && grid[4][5] == 'O') || (grid[0][10] == 'O' && grid[2][10] == 'O' && grid[4][10] == 'O') || (grid[0][14] == 'O' && grid[2][14] == 'O' && grid[4][14] == 'O') || (grid[2][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || (grid[4][5] == 'O' && grid[4][10] == 'O' && grid[4][14] == 'O') || (grid[0][5] == 'O' && grid[2][10] == 'O' && grid[4][14] == 'O') || (grid[4][5] == 'O' && grid[2][10] == 'O' && grid[0][14] == 'O'))
     {
         value = 2;
     }
@@ -79,7 +73,7 @@ int selectPosition(char player)
     return x;
 }
 
-void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN])
+void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN])  //allows player to move to specified position
 {
     int legalMove = 0;
     int x = 0, y = 5;
@@ -125,7 +119,7 @@ void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN])
             y = 14;
             break;
         }
-        if ((grid[x][y] == 'X') || (grid[x][y] == 'O'))
+        if ((grid[x][y] == 'X') || (grid[x][y] == 'O'))      //error handling if desired position is taken
         {
             printf("This position is taken \n");
             pos = selectPosition(playerLetter);
@@ -139,7 +133,7 @@ void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN])
     grid[x][y] = playerLetter;
 }
 
-void print_array(char grid[ROWS][COLUMN])
+void print_array(char grid[ROWS][COLUMN])        //grid for game
 {
     int x;
     for (x = 0; x < 5; x++)
@@ -148,7 +142,7 @@ void print_array(char grid[ROWS][COLUMN])
     };
 }
 
-int main()
+int main()                             //main function
 {
     int player_count = 2;
     char player;
@@ -159,7 +153,7 @@ int main()
     int v;
     int j;
     int draw;
-    char title1[ROWS][COLUMN] = {
+    char title1[ROWS][COLUMN] = {      //ascii art
 
         "╭╮╭╮╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╱",
         "┃┃┃┃┃┃╱╱┃┃╱╱╱╱╱╱╱╱╱╱╱╱╱",
@@ -168,7 +162,7 @@ int main()
         "╰╮╭╮╭┫┃━┫╰┫╰━┫╰╯┃┃┃┃┃━┫",
         "╱╰╯╰╯╰━━┻━┻━━┻━━┻┻┻┻━━╯",
     };
-    for (j = 0; j <= 5; j++)
+    for (j = 0; j <= 5; j++)             //for loop to print all rows or array. same process for other ascii art
     {
         printf("%s", title1[j]);
         printf("\n");
@@ -298,6 +292,13 @@ int main()
         }
         printf("Would you like to play again? (1)yes (2)no "); //** Reprompt to play again**//
         scanf("%d", &v);
+        while (
+         (v!=1 && v!=2 )){                                       //error handling
+            printf("Not a valid choice! Choose 1-2\n");
+            printf("Would you like to play again?(%c): ", player);
+            scanf("%*[^\n]");
+            scanf("%d", &v);
+    }
         if (v == 1)
         {
             u = 0;
