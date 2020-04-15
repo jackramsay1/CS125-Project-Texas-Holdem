@@ -41,7 +41,14 @@ int testforwin(char grid[ROWS][COLUMN]) //*This function tests for the winner*//
     {
         value = 1;
     }
-    else if ((grid[0][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || (grid[0][5] == 'O' && grid[2][5] == 'O' && grid[4][5] == 'O') || (grid[0][10] == 'O' && grid[2][10] == 'O' && grid[4][10] == 'O') || (grid[0][14] == 'O' && grid[2][14] == 'O' && grid[4][14] == 'O') || (grid[2][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || (grid[4][5] == 'O' && grid[4][10] == 'O' && grid[4][14] == 'O') || (grid[0][5] == 'O' && grid[2][10] == 'O' && grid[4][14] == 'O') || (grid[4][5] == 'O' && grid[2][10] == 'O' && grid[0][14] == 'O'))
+    else if ((grid[0][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || 
+             (grid[0][5] == 'O' && grid[2][5] == 'O' && grid[4][5] == 'O') || 
+             (grid[0][10] == 'O' && grid[2][10] == 'O' && grid[4][10] == 'O') || 
+             (grid[0][14] == 'O' && grid[2][14] == 'O' && grid[4][14] == 'O') || 
+             (grid[2][5] == 'O' && grid[0][10] == 'O' && grid[0][14] == 'O') || 
+             (grid[4][5] == 'O' && grid[4][10] == 'O' && grid[4][14] == 'O') || 
+             (grid[0][5] == 'O' && grid[2][10] == 'O' && grid[4][14] == 'O') || 
+             (grid[4][5] == 'O' && grid[2][10] == 'O' && grid[0][14] == 'O'))
     {
         value = 2;
     }
