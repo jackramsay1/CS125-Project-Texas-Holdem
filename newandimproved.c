@@ -267,7 +267,7 @@ while(u!=1 && u!=2){                          //checks for win for X or O and pr
 	scanf("%d", &v);
 		while (
 
-         (v!=1 && v!=2 )){
+         (v!=1 && v!=2 )){                                       //error handling
 
          printf("Not a valid choice! Choose 1-2\n");
 
