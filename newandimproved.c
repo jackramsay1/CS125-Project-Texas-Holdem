@@ -8,9 +8,9 @@ void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]);
 int selectPosition(char);
 
 
-void print_array(char grid[ROWS][COLUMN]);
+void print_array(char grid[ROWS][COLUMN]);  
 
-int testforwin(char grid[ROWS][COLUMN])
+int testforwin(char grid[ROWS][COLUMN]) //checks for an X or O win
 {
     int value;
     if ((grid[0][5] == 'X' && grid[0][10] == 'X' && grid[0][14] == 'X') ||
@@ -43,24 +43,7 @@ int testforwin(char grid[ROWS][COLUMN])
 
 
 
-int selectPosition(char player) { 
-    /*
-    float x;
-    printf("\n");
-    scanf("%*c");	//read in \n
-    printf("Enter your position to move(%c): ", player);
-    scanf("%f", &x);
-    while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5 && x!=6 && x!=7 && x!=8 && x!=9){
-         printf("Not a valid choice! Choose 1-9\n");
-         printf("Enter your position to move(%c): ", player);
-         scanf("%f", &x);
-    }
-   
-     return x; 
-    }
-    //add error handling to make sure not letter, < 1, or > 9
-    */
-    
+int selectPosition(char player) {  //allows player to enter desired position. Error handling included    
  int x;
     int numRead;
     printf("\n");
@@ -78,7 +61,7 @@ int selectPosition(char player) {
      return x;
 }
 
-void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]){
+void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]){    //places users position input
   int legalMove = 0;
   int x=0, y=5;
   int pos= playerPos;
@@ -122,7 +105,7 @@ void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]){
 	  y = 14;
 	  break;
 	}
-	if ((grid[x][y] == 'X')||(grid[x][y] == 'O')){
+	if ((grid[x][y] == 'X')||(grid[x][y] == 'O')){  //error handling for filled positions
 	  printf("This position is taken \n");
           pos=selectPosition(playerLetter);
 	}  
@@ -136,7 +119,7 @@ void playerGo(int playerPos, char playerLetter, char grid[ROWS][COLUMN]){
 
 
 
-void print_array(char grid[ROWS][COLUMN])
+void print_array(char grid[ROWS][COLUMN]) 
 {
     int x;
     for (x = 0; x < 5; x++) {
@@ -145,7 +128,7 @@ void print_array(char grid[ROWS][COLUMN])
 
 }
 
-int main()
+int main()  //main function
 {
     int player_count = 2;
     char player;
@@ -156,7 +139,7 @@ int main()
     int v;
     int j;
 	
-char title1[ROWS][COLUMN] = {
+char title1[ROWS][COLUMN] = {  //ascii art
 
 "╭╮╭╮╭╮  ╭╮             ",
 "┃┃┃┃┃┃  ┃┃             ",
@@ -167,7 +150,7 @@ char title1[ROWS][COLUMN] = {
 };
 
 
-for(j=0; j<=5; j++){
+for(j=0; j<=5; j++){     //for loop to print all rows of grid
 printf("%s", title1[j]);
 printf("\n");
 }
@@ -206,9 +189,9 @@ printf("%s", title3[j]);
 printf("\n");
 }
 printf("\n");
-    FILE *Record = fopen("GameRecord.txt", "a");
+    FILE *Record = fopen("GameRecord.txt", "a");   //txt.file
     
-    if (player_count == 2) {
+    if (player_count == 2) {                      //intro with error handling
 	    printf("Welcome to Tic Tac Toe!\n");
 	    printf("Player 1 choose x or o:\n");
 	    scanf("%s", &player1);
@@ -219,7 +202,7 @@ printf("\n");
 		scanf("%s", &player1);
 	
 	    }
-	    if (player1 == 'x') {
+	    if (player1 == 'x') {               //print statments so the user knows who is X and O
 		player2 = 'o';
 		printf("Player 1 is x\n");
 		printf("Player 2 is o\n");
@@ -229,7 +212,7 @@ printf("\n");
 		printf("Player 2 is x\n");
 	    }
     }
-	    char grid[ROWS][COLUMN] = {
+	    char grid[ROWS][COLUMN] = {         //grid for the game
 		"     1  | 2 | 3",
 		" -------------------",
 		"     4  | 5 | 6",
@@ -237,7 +220,7 @@ printf("\n");
 		"     7  | 8 | 9",
 	    };
 	    printf("\n");
-while(u!=1 && u!=2){
+while(u!=1 && u!=2){                          //checks for win for X or O and prints statement to user
 	    while (over !=1 && over!=2) {
 		print_array(grid);
 		int pos = selectPosition('X'); //playerinput(grid);
@@ -275,12 +258,12 @@ while(u!=1 && u!=2){
 
 
         int x;
-        fprintf(Record,"\n");
+        fprintf(Record,"\n");             ///prints to txt.file
 	    for (x=0; x < 5; x++) {
 		fprintf(Record, "%s\n", grid[x]);
 	    }
 	   
-	printf("Would you like to play again? (1)yes (2)no ");
+	printf("Would you like to play again? (1)yes (2)no ");   //reprompts user
 	scanf("%d", &v);
 	if (v==1){
 	    u=0;
