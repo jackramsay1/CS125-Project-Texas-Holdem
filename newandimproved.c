@@ -265,6 +265,19 @@ while(u!=1 && u!=2){                          //checks for win for X or O and pr
 	   
 	printf("Would you like to play again? (1)yes (2)no ");   //reprompts user
 	scanf("%d", &v);
+		while (
+
+         (v!=1 && v!=2 )){
+
+         printf("Not a valid choice! Choose 1-2\n");
+
+         printf("Would you like to play again?(%c): ", player);
+
+      scanf("%*[^\n]");
+
+         scanf("%d", &v);
+
+    }
 	if (v==1){
 	    u=0;
 	    over=0;
