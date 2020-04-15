@@ -296,7 +296,7 @@ int main()                             //main function
          (v!=1 && v!=2 )){                                       //error handling
             printf("Not a valid choice! Choose 1-2\n");
             printf("Would you like to play again?(%c): ", player);
-            scanf("%*[^\n]");
+            scanf("%*[^\n]");    //scans everything until a \n, but doesn't scan in the \n. The asterisk(*) tells it to discard whatever was scanned.
             scanf("%d", &v);
     }
         if (v == 1)
